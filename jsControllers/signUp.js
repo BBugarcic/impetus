@@ -1,8 +1,7 @@
 // passing users inputs to php controller
 $(document).ready(function(){
 
-		$('#subBtn1').click(function (event) {
-			 event.preventDefault();
+		$('#subBtn1').click(function() {
 			var pass = $('#pass').val();
 			var conf = $('#conf').val();
 			if (pass !== conf) {
@@ -11,7 +10,7 @@ $(document).ready(function(){
 			else{
 				$.ajax({
 					type: "POST",
-					url:"/phpControllers/signUp.php", // 
+					url:"/phpControllers/signUp.php", 
 					data: {
 						username: $('#username').val(),
 						email: $('#email').val(),
@@ -28,7 +27,8 @@ $(document).ready(function(){
 				}
 				
 				});
-			//return false;
+
+			return false;
 			}
 			
 		});
