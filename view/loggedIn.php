@@ -15,7 +15,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">	
 					<li>
-						<a id="logOut" href="http://localhost/index.php" role="button">Log out</a>
+						<button id="logOut" type="button" class="btn btn-link">Log out</button>
+						<!-- http://localhost/index.php -->
 					</li>
 				</ul>
 			</div>
@@ -33,3 +34,8 @@
 </body>
 
 <?php include('footer.php') ?>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="../includes/js/bootstrap.min.js"></script>
+	<script src="../jsControllers/logOut.js"></script>
