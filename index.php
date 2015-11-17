@@ -1,7 +1,7 @@
 <?php include('./view/header.php'); ?>
 	
 	<body>
-		<!-- modal window sign up form  OVo ti je u stari ono sto se popupuje? da A onda gdje bi trebalo da ti uradi redirekciju?-->
+		<!-- modal window sign up form -->
 		<div class="modal fade" id="signupForm"> 
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -70,7 +70,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-5">
-									<input id="subBtn" type="submit" class="btn btn-success" value="Submit">
+									<input id="logButton" type="submit" class="btn btn-success" value="Submit">
 								</div>
 							</div>
 						</form>
@@ -150,6 +150,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="includes/js/bootstrap.min.js"></script>
 		<script src="jsControllers/signUp.js"></script>
+		<script src="jsControllers/logOut.js"></script>
+		<script src="jsControllers/logIn.js"></script>
 			
 	
 	</body>
