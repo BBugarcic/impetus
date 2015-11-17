@@ -15,24 +15,20 @@
 	$email = $_POST['email'];
 	$hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 	
-	// printing hash in log file just for testing purpose
-	file_put_contents('php://stderr', print_r($hash, TRUE));
-	
+	// establish connection with database
 	$connection = db_connect();
 	
-	// log to a file to for testing purpose
-	file_put_contents('php://stderr', print_r($connection, TRUE));
-	
-	$new_user = db_query("INSERT INTO `users` (`username`, `email`, `password`) 
+	// inserting new user into database
+	$new_user = db_query("INSERT INTO `users` (`username`, `email`, `hash`) 
 	VALUES ('{$username}', '{$email}', '{$hash}')");
 	
 	if($new_user === false) {
 		$error = db_error();
 	    file_put_contents('php://stderr', print_r($error, TRUE));
+		$result = array('status' => 'error');
+		echo json_encode($result);
 	} else {
-    	$success = 'New user is inserted into database.';
-		file_put_contents('php://stderr', print_r($success, TRUE));
-		
+
 		// new user is automaticaly logged in
 		// remeber that user is logged by storing user's id in $_SESSION
 		$res = db_query("SELECT LAST_INSERT_ID() AS id");
@@ -41,24 +37,10 @@
 		$_SESSION['id'] = $id;
 		file_put_contents('php://stderr', print_r($_SESSION['id'], TRUE));
 		
-		file_put_contents('php://stderr', print_r("ja postojim", TRUE));
 		
 		// return answer to ajax function in signUp.js
 		$result = array('status' => '1');
 		echo json_encode($result);
-		
-
 	}
-	
-	
-
-	
-	/*if (password_verify($password, $hash)) {
-    // Success!
-	}
-	else {
-    // Invalid credentials
-	}
-	*/	
 	
 ?>
