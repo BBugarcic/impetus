@@ -8,13 +8,15 @@ $(document).ready(function(event) {
 		$("#newList").prop("disabled", true);
 	 });
 	 
+	
 	 // creating new list
 	 // enable new list button for next list
 	 $("#createList").click(function(event) {
 		$("#newList").prop("disabled", false);
 		
+		// save current list title
 		// send list title to php controller via ajax
-		var title = $("#NewListTitle").val();
+	 	var title = $("#NewListTitle").val();
 		if (title == '') {
 			//alert("List title is requiered");
 			$("#required").html("<div class='alert alert-danger alert-dismissible col-md-4' role='alert'>" +
@@ -31,7 +33,7 @@ $(document).ready(function(event) {
 				success: function(response) {
 					if(response.status == 1) {
 						$("#currentTitle").html("<p>" + title + "</p>");
-						
+						$("#NewListTitle").val("");
 						//enable add task button after creating list
 						$("#addTask").prop("disabled", false);
 					} else {
@@ -51,7 +53,7 @@ $(document).ready(function(event) {
 		
 		// delete current list
 		$("#deleteCurrList").click(function(){	
-			var currTitle = $("#NewListTitle").val();	
+			var currTitle = $("#currentTitle").text();	
 			$.ajax({
 				type: "POST",
 				url: "../phpControllers/delCurrList.php",
@@ -61,11 +63,12 @@ $(document).ready(function(event) {
 				dataType: "json",
 				success: function(response) {
 					if(response.status == 1) {
-						$("#NewListTitle").val("");
 						$("#titleRow").hide("slow");
 						$("#itemRow").empty();
 						$("#itemRow").hide("slow");
 						$("#addItemRow").hide("slow");
+						$("#itemCategory").hide("slow");
+						$("#addTask").prop("disabled", true);
 					} else {
 						alert("Sorry! Something went wrong. Open your list first, and than delete it.");
 					}
@@ -119,18 +122,18 @@ $(document).ready(function(event) {
 				dataType: "json",
 				success: function(response) {
 					if(response.status == 1) {
-						$("#itemRow").append("<div id='newItem' class='row'><div class='col-md-1'>" +
+						$("#itemRow").append("<div id='" + response.item_id + "' class='row'><div class='col-md-1'>" +
 						"<div class='checkbox'><label>" +
-						"<input type='checkbox'>" +
+						"<input id='" + response.item_id + "' type='checkbox'>" +
 						"</label></div></div>" +
 						"<div id='ToDo' class='col-md-7'><p id='item'>" + inputToDo + "</p></div>" +
-						"<div id='remove' class='col-md-1'>" +
-						"<button type='submit' class='btn btn-default btn-xm'>" +
+						"<div id='edit' class='col-md-1'>" +
+						"<button id='" + response.item_id + "' type='submit' class='btn btn-default btn-xm'>" +
 						"<span class='glyphicon glyphicon-wrench' aria-hidden='true'></span></button></div>" +
 						"<div id='remove' class='col-md-1'>" +
-						"<button type='submit' class='btn btn-default btn-xm'>" +
+						"<button id='" + response.item_id + "' type='button' class='btn btn-default btn-xm'>" +
 						"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></div></div>");
-						$("#newItem").show("slow");	
+						$("#newItem").show("slow");
 					} else {
 						alert("Sorry! Something went wrong.");
 					}
@@ -141,7 +144,48 @@ $(document).ready(function(event) {
 			});
 			
 			$("#itemRow").show("slow");
-		});
-		
-			 event.preventDefault();		
 	 });
+
+	 // remove and edit button handler
+	$( "#itemRow" ).on( "click", "button", function() {
+		alert('cao');
+		var elementId = $(this).attr('id');
+		var parentId = $(this).closest("div").attr("id");
+		alert("perent div: " + parentId);		
+		alert(elementId);
+		// delete item
+		// send json array to php controller
+		// remove div after success
+		if (parentId == "remove") {
+			alert("u if-u");		
+			$.ajax({
+				type: "POST",
+				url: "../phpControllers/deleteItem.php",
+				data: {
+					item_id: $(this).attr('id'),
+				},
+				dataType: "json",
+				success: function(response) {
+					if(response.status == 1) {
+						alert("uhvatio response");
+						alert(elementId);
+						$("#" + elementId).remove();
+					} else {
+						alert("Sorry! Something went wrong. Open your list first, and than delete it.");
+					}
+				},
+				error: function(xhr,ajaxOptions,thrownError) {
+					alert(thrownError);
+				}
+			});	
+		}
+
+	});
+
+	$( "#itemRow" ).on( "click", "input", function() {
+		alert('cao');
+		var elementId = $(this).attr('id');
+		alert(elementId);
+	});	
+			
+});
