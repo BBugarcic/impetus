@@ -3,7 +3,6 @@
 // when clicked on log out button
 $(document).ready(function() {
 	$('#logOut').click(function() {
-		
 		$.ajax({
 			type: "POST",
 			url:'/phpControllers/logOut.php',
