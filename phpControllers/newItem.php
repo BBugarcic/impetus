@@ -13,25 +13,27 @@
 	$item = $_POST["item"];
 	$title = $_POST["listTitle"];
 	
-	$id = $_SESSION['id'];
+	$user_id = $_SESSION['id'];
+	$current_list_id = $_SESSION['current_list_id'];
 	
-	$res = db_query("SELECT `id` FROM `lists` WHERE title='{$title}' AND userID=$id");
-	$rows = mysqli_fetch_assoc($res);
-	$list_id = $rows['id'];
 	$new_item = db_query("INSERT INTO `items` (`item`, `listID`) 
-	VALUES ('{$item}', '{$list_id}')");
+	VALUES ('{$item}', '{$current_list_id}')");
+	
+	$res = db_query("SELECT LAST_INSERT_ID() AS id");
+	$rows = mysqli_fetch_assoc($res);
+	$item_id = $rows["id"];
 
 	
 	$krik = "jeah";
 	$error = "error";
 	if($new_item) {
-			file_put_contents('php://stderr', print_r($krik, TRUE));
-			$result = array('status' => '1');
-			echo json_encode($result);
+		$result = array('status' => '1', 'item_id' => $item_id);
+			file_put_contents('php://stderr', print_r($result, TRUE));
+		echo json_encode($result);
 	}
 	else {
-		file_put_contents('php://stderr', print_r($error, TRUE));
-		
+		$result = array('status' => 'error');
+		echo json_encode($result);
 	}
 
 
