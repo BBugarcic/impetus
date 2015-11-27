@@ -7,13 +7,16 @@ $(document).ready(function(){
 			var pass = $('#pass').val();
 			var conf = $('#conf').val();
 			if (username == '' || email == '' || pass == '' || conf == '') {
-				alert("All fields are required");
+				$("#alert").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
+  						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+  						"<strong>All fields are required!</strong></div>");
 			}
 			else if (pass !== conf) {
-				alert("Password and confirmation are not the same.");
+				$("#alert").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
+  						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+  						"<strong>Password and conformation are not the same!</strong></div>");
 			}
-			
-			else{
+			else {
 				$.ajax({
 					type: "POST",
 					url:"/phpControllers/signUp.php", 
@@ -29,7 +32,9 @@ $(document).ready(function(){
 						// redirect to...
 						$(window).attr('location','http://localhost/view/loggedIn.php');
 					} else {
-						alert("Username is already taken.")
+						$("#takenName").html("<div class='alert alert-danger alert-dismissible' role='alert'>" + 
+						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" + 
+						"<strong>Username is already taken!</strong></div>");
 					}
 				},
 				error: function(xhr,ajaxOptions,thrownError) {
@@ -41,9 +46,7 @@ $(document).ready(function(){
 			return false;
 			}
 			
-		});
-		
-			
+		});		
 });
 
 
