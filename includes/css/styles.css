@@ -3,13 +3,6 @@ body {
   padding-bottom: 20px;
 }
 
-.wide_jpg {
-   width: 100%;
-   height: 400px;
-   background-image:url('/includes/img/smallelephant.jpg');
-   background-size: cover;
-}
-
 h2 {
   text-align: center;
 }
@@ -18,3 +11,65 @@ footer {
   text-align: center;
   padding-top: 100px;
 }
+
+.form-inline {
+  margin-top: 60px;
+}
+
+#list {
+  margin-left: 50px;
+}
+
+#titlePlace {
+  margin-left: 60px;
+  display: none;
+}
+
+
+#new task {
+  align-content: center;
+}
+
+#smallpic {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#itemCategory {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#currentTitle {
+  text-align: left;
+}
+
+#ToDo,
+#addItemRow,
+#check {
+  margin-top: 10px;
+}
+
+#remove {
+  margin-top: 10px;
+}
+
+#itemCategory,
+#addItemRow,
+#itemRow,
+#titleRow {
+  display: none;
+}
+
+#itemRow {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+#required {
+  margin-left: 50px;
+}
+
+
+
