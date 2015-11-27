@@ -1,6 +1,6 @@
 <?php include('./view/header.php'); ?>
 	
-	<body data-spy="scroll" data-target="#navbar-example">
+	<body data-spy="scroll">
 		<!-- modal window sign up form -->
 		<div class="modal fade" id="signupForm"> 
 			<div class="modal-dialog">
