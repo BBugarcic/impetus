@@ -14,7 +14,9 @@ $(document).ready(function(){
 					// redirect to...
 					$(window).attr('location','http://localhost/view/loggedIn.php');	
 				} else {
-					alert("Ups! It looks like you've typed wrong username or password");
+					$("#alertLog").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
+  						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+  						"<strong>Ups! It looks like a wrong username or password!</strong></div>");
 				}
 			},
 			error: function(xhr,ajaxOptions,thrownError) {
