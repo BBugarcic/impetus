@@ -1,6 +1,6 @@
 <?php include('header.php') ?>
 
-<body>
+<body data-spy="scroll">
 	<div class="container-fluid">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
