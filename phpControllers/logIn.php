@@ -25,10 +25,12 @@
 			if (password_verify($pass, $rows[0]["hash"])) {
 				$id = $rows[0]["id"];
 				$_SESSION["id"] = $id;
+					file_put_contents('php://stderr', print_r($_SESSION, TRUE)); 
 				$result = array('status' => '1');
 				echo json_encode($result);
 			} else {
-				$resalt = array("error" => "error");
+				$result = array("status" => "error");
+				echo json_encode($result);
 			}	
 	}
 ?>
