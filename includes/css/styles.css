@@ -51,7 +51,7 @@ footer {
   margin-top: 10px;
 }
 
-#remove {
+.remove, .edit {
   margin-top: 10px;
 }
 
