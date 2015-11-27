@@ -22,7 +22,11 @@
 	$del_list = db_query("DELETE FROM `lists` WHERE userID='{$userID}' AND title='{$curr_title}'");
 	$del_items = db_query("DELETE FROM `items` WHERE listID='{$list_id}'");
 
-	$result = array('status' => '1');
-	echo json_encode($result);
-	
+	// successfuly deleted
+	if($del_list && $del_items) {
+		$result = array('status' => '1');
+		echo json_encode($result);
+	} else {
+		$result = array('status' => 'error');
+	}
 ?>
