@@ -1,6 +1,6 @@
 <?php include('./view/header.php'); ?>
 	
-	<body>
+	<body data-spy="scroll" data-target="#navbar-example">
 		<!-- modal window sign up form -->
 		<div class="modal fade" id="signupForm"> 
 			<div class="modal-dialog">
@@ -16,7 +16,9 @@
 								<div class="col-md-5">
 									<input id="username" type="text" class="form-control input-sm" required>
 								</div>
+								
 							</div>
+							<div id="takenName"></div>
 							<div class = "form-group">
 								<label class="col-md-4 com-md-offset-1">Email address</label>
 								<div class="col-md-5">
@@ -34,6 +36,8 @@
 								<div class="col-md-5">
 									<input id="conf" type="password" class="form-control input-sm" required>
 								</div>
+							</div>
+							<div id="alert">
 							</div>
 							<div class="form-group">
 								<div class="col-md-5">
@@ -67,6 +71,8 @@
 								<div class="col-md-5">
 									<input id="passLog" type="password" class="form-control input-sm" required>
 								</div>
+							</div>
+							<div id="alertLog">
 							</div>
 							<div class="form-group">
 								<div class="col-md-5">
@@ -115,7 +121,10 @@
     </nav>
 	
 	<!--background picture -->
-	<div class="wide_jpg"></div>
+	<div class="container">
+		<img class="center-block" src="includes/img/smallhorse.jpg" />
+		
+	</div>
 	
 	<!-- main div with informations --> 
 	<div class="container">
