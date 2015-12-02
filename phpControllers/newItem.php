@@ -10,14 +10,15 @@
 	file_put_contents('php://stderr', print_r($_POST, TRUE));
 	file_put_contents('php://stderr', print_r($_SESSION, TRUE));
 	
+	// remeber item
 	$item = $_POST["item"];
-	$title = $_POST["listTitle"];
 	
+	// remember current list's id
 	$user_id = $_SESSION['id'];
 	$current_list_id = $_SESSION['current_list_id'];
 	
-	$new_item = db_query("INSERT INTO `items` (`item`, `listID`) 
-	VALUES ('{$item}', '{$current_list_id}')");
+	$new_item = db_query("INSERT INTO `items` (`item`, `listID`, `done`) 
+	VALUES ('{$item}', '{$current_list_id}', '0')");
 	
 	$res = db_query("SELECT LAST_INSERT_ID() AS id");
 	$rows = mysqli_fetch_assoc($res);
@@ -35,7 +36,5 @@
 		$result = array('status' => 'error');
 		echo json_encode($result);
 	}
-
-
-	
+		
 ?>
