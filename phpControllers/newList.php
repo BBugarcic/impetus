@@ -22,9 +22,8 @@
 	$_SESSION["current_list_id"] = $rows["id"];
 
 	file_put_contents('php://stderr', print_r($_SESSION, TRUE));
-	
 
-
+	// return answer via ajax
 	$result = array('status' => '1');
 	echo json_encode($result);
 	
