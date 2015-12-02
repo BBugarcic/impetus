@@ -67,9 +67,24 @@ footer {
   margin-left: 50px;
 }
 
-#required {
+#requiredAlert {
   margin-left: 50px;
+  margin-top: 5px;
 }
+
+#deleteAlert {
+  margin-top: 5px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+#yes, 
+#no {
+  margin-left: 10px;
+}
+
 
 
 
