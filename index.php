@@ -16,7 +16,6 @@
 								<div class="col-md-5">
 									<input id="username" type="text" class="form-control input-sm" required>
 								</div>
-								
 							</div>
 							<div id="takenName"></div>
 							<div class = "form-group">
@@ -25,6 +24,7 @@
 									<input id="email" type="email" class="form-control input-sm" required>
 								</div>
 							</div>
+							<div id="emailAlert"></div>
 							<div class = "form-group">
 								<label class="col-md-4 com-md-offset-1">Password</label>
 								<div class="col-md-5">
@@ -66,13 +66,15 @@
 									<input id="userLog" type="text" class="form-control input-sm" required>
 								</div>
 							</div>
+							<div id="alertUsername">
+							</div>
 							<div class = "form-group">
 								<label class="col-md-4 com-md-offset-1">Password</label>
 								<div class="col-md-5">
 									<input id="passLog" type="password" class="form-control input-sm" required>
 								</div>
 							</div>
-							<div id="alertLog">
+							<div id="alertPassword">
 							</div>
 							<div class="form-group">
 								<div class="col-md-5">
@@ -97,23 +99,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Momentum</a>
+                <a class="navbar-brand" href="#">Impetus</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                <!--    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li> -->
                     <li>
                         <a href="#loginForm" role="button" data-toggle="modal">Log in</a>
                     </li>
                     <li>
                         <a href="#signupForm" role="button" data-toggle="modal">Sign up</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -129,21 +125,22 @@
 	<!-- main div with informations --> 
 	<div class="container">
 		<div class="col-xs-12 text-center">
-			<h1>MOMENTUM</h1>
+			<h1>IMPETUS</h1>
 			<a class="btn btn-default" href="#signupForm" role="button" data-toggle="modal">Sign up</a>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<h2>Build it</h2>
-				<p>Use simple to-do lists to achive your yearly, monthly and daily goals.</p>
+				<p>Use simple to-do lists to achive your yearly, monthly and daily goals. 
+					Build up your motivation. Achieve big goals by focusing on every day steps.</p>
 			</div>
 			<div class="col-md-4">
 				<h2>Maintain it</h2>
-				<p>Developing momentum is just a beginning. Make it a lifestyle.</p>
+				<p>Impuls to do something is just a beginning. Achieving is matter of effort, perseverance and patience.</p>
 			</div>
 			<div class="col-md-4">
 				<h2>Increase it</h2>
-				<p>Love your momentum, your action and your move. Analyze, improve, press harder.</p>
+				<p>Maintain your spiritual momentum and put yourself in action. Analyze, improve, press harder!</p>
 			</div>
 		</div>
 	</div>
