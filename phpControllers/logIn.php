@@ -18,14 +18,14 @@
 	
 	// handling case with no matching in database
 	if(empty($rows)) {
-		$result = array("status" => "error"); 
+		$result = array("status" => "errorUser"); 
 		echo json_encode($result);
 	} else {
 			// log in, return result via ajax
+			// verify password
 			if (password_verify($pass, $rows[0]["hash"])) {
 				$id = $rows[0]["id"];
-				$_SESSION["id"] = $id;
-					file_put_contents('php://stderr', print_r($_SESSION, TRUE)); 
+				$_SESSION["id"] = $id; 
 				$result = array('status' => '1');
 				echo json_encode($result);
 			} else {
