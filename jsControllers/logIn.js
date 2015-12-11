@@ -13,10 +13,14 @@ $(document).ready(function(){
 					// if username and password are ok
 					// redirect to...
 					$(window).attr('location','http://localhost/view/loggedIn.php');	
-				} else {
-					$("#alertLog").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
+				} else if (response.status == "errorUser") {
+					$("#alertUsername").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
   						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
-  						"<strong>Ups! It looks like a wrong username or password!</strong></div>");
+  						"<strong>Ups! Username is not correct! Please try again!</strong></div>");
+				} else {
+					$("#alertPassword").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
+  						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+  						"<strong>Ups! Password! is not correct! Please try again!</strong></div>");					
 				}
 			},
 			error: function(xhr,ajaxOptions,thrownError) {
