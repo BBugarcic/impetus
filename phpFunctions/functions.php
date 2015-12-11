@@ -90,4 +90,52 @@
 		}
 		return $rows;
 	}
+	
+		/**
+		*
+		* simple function to test password strength
+		*
+		* param string $password
+		*
+		* return int 
+		*
+		*/
+		function testPassword($password)
+		{
+			if ( strlen( $password ) == 0 )
+			{
+				return 1;
+			}
+		
+			$strength = 0;
+		
+			// get the length of the password
+			$length = strlen($password);
+		
+			// check if password is not all lower case
+			if(strtolower($password) != $password)
+			{
+				$strength += 1;
+			}
+			
+			// check if password is not all upper case
+			if(strtoupper($password) == $password)
+			{
+				$strength += 1;
+			}
+		
+			// check string length is 8 - 15 chars
+			if($length >= 8)
+			{
+				$strength += 1;
+			}
+		
+			// get the numbers in the password
+			preg_match_all('/[0-9]/', $password, $numbers);
+			$strength += count($numbers[0]);
+		
+			// strength is a number 1-10
+			return $strength;
+		}
+		
 ?>
