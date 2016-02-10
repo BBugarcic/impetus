@@ -4,6 +4,7 @@ $(document).ready(function(event) {
 	// initialize table with server-side processing (user's lists)
 	// send ajax to php script
 	var table = $('#myTables').DataTable( {
+						select: true,
 						"processing": true,
 						"serverSide": true,
 						"ajax": "../phpControllers/loadData.php",

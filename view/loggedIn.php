@@ -95,7 +95,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label=""><span>&times;</span></button>
-						<h4 class="modal=title">Delte Account</h4>
+						<h4 class="modal=title">Delete Account</h4>
 					</div>
 					<div class="modal-body">
 						<div>
@@ -141,7 +141,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-						<a class="navbar-brand" href="#">Momentum</a>
+						<a class="navbar-brand" href="#">Impetus</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
