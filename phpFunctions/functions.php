@@ -4,6 +4,7 @@
 	 *
 	 * Establish connection with the database.
 	 */
+	include("../database.php");
 	
 	function db_connect() {
 	
@@ -14,8 +15,8 @@
 	if(!isset($connection)) {
 		
 		// load configuration as an array
-		$config = parse_ini_file('../../../configuration_Files/config.ini');
-		$connection = mysqli_connect($config['servername'], $config['db_username'], $config['db_pass'], $config['db_name']);
+		// $config = parse_ini_file('../config.ini'); // configuration for localhost
+		$connection = mysqli_connect($server, $username, $password, $db);
 	}
 	
 	// if connection was not successful, handle the error
