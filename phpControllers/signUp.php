@@ -9,7 +9,7 @@
 	// print $_POST array in log error file (for testing purposes)
 	file_put_contents('php://stderr', print_r($_POST, TRUE)); 
 
-	// placing username and emai into local variables
+	// placing username and email into local variables
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	
@@ -37,7 +37,7 @@
 			$new_user = db_query("INSERT INTO `users` (`username`, `email`, `hash`) 
 			VALUES ('{$username}', '{$email}', '{$hash}')");
 			
-			// return error if usernama is already taken
+			// return error if username is already taken
 			if($new_user === false) {
 				$error = db_error();
 				file_put_contents('php://stderr', print_r($error, TRUE));

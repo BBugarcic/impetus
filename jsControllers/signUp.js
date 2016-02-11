@@ -26,7 +26,13 @@ $(document).ready(function(){
 					if(response.status == 1) {
 						// if new user is registered
 						// redirect to...
-						$(window).attr('location','http://localhost/view/loggedIn.php');
+						
+					/*var host = $(location).attr('hostname');
+					//console.log(host);
+					$(window).attr('location','http://' + host + '/view/loggedIn.php');*/
+					
+											
+					$(window).attr('location','/view/loggedIn.php');
 					} else if (response.status == "emailError") {
 						// alert if email is not in proper format
 						$("#emailAlert").html("<div class='alert alert-danger alert-dismissible' role='alert'>" + 

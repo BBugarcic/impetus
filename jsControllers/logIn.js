@@ -12,7 +12,13 @@ $(document).ready(function(){
 				if(response.status == 1) {
 					// if username and password are ok
 					// redirect to...
-					$(window).attr('location','http://localhost/view/loggedIn.php');	
+					
+					
+					/*var host = $(location).attr('hostname');
+					console.log(host + '/view/loggedIn.php');
+					$(window).attr('location', host + '/view/loggedIn.php');*/
+					
+					$(window).attr('location','http://localhost/view/loggedIn.php');		
 				} else if (response.status == "errorUser") {
 					$("#alertUsername").html("<div class='alert alert-danger alert-dismissible' role='alert'>" +
   						"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
