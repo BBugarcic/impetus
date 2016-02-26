@@ -30,11 +30,21 @@
 	);
 	
 	// SQL server connection information
+	//TODO: make me elegant
+	
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$server = $url["host"];
+	file_put_contents('php://stderr', print_r("SERVER2222", TRUE));
+	file_put_contents('php://stderr', print_r($server, TRUE));
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+	
 	$sql_details = array(
-		'user' => 'root',
-		'pass' => 'barabislav',
-		'db'   => 'momentum',
-		'host' => 'localhost'
+		'user' => $username,
+		'pass' => $password,
+		'db'   => $db,
+		'host' => $server
 	);
 	
 	// user id

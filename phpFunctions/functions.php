@@ -31,7 +31,7 @@
 		file_put_contents('php://stderr', print_r($password, TRUE));
 		file_put_contents('php://stderr', print_r($db, TRUE));
 		// load configuration as an array
-		 $config = parse_ini_file('../config.ini'); // configuration for localhost
+		 //$config = parse_ini_file('../config.ini'); // configuration for localhost
 		$connection = mysqli_connect($server, $username, $password, $db);
 		
 	}
