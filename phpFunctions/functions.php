@@ -10,11 +10,12 @@
 	
 	// define connection as a static variable, to avoid connecting more then once
 	static $connection;
+	file_put_contents('php://stderr', print_r("DB CONNECT", TRUE));
 	
 	// try and connect to the database, if a connection has not been established yet
 	if(!isset($connection)) {
 		
-		
+		file_put_contents('php://stderr', print_r("NOT SET CONNECTION", TRUE));
 		file_put_contents('php://stderr', print_r($server, TRUE));
 		file_put_contents('php://stderr', print_r($username, TRUE));
 		file_put_contents('php://stderr', print_r($password, TRUE));
@@ -29,7 +30,7 @@
 	if($connection === false) {
 		return mysqli_connect_error();
 	}
-	
+	file_put_contents('php://stderr', print_r("CONN not false", TRUE));
 	return $connection;
 	
 	 }
@@ -44,7 +45,7 @@
 		// connect to the database
 		$connection = db_connect();
 		file_put_contents('php://stderr', print_r("CONNECTED", TRUE));
-		
+		file_put_contents('php://stderr', print_r($connection, TRUE));
 		//query the database
 		$result = mysqli_query($connection, $query);
 		
