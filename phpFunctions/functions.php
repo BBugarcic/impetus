@@ -4,7 +4,7 @@
 	 *
 	 * Establish connection with the database.
 	 */
-	include("../database.php");
+	include('../database.php');
 	
 	function db_connect() {
 	
@@ -14,9 +14,15 @@
 	// try and connect to the database, if a connection has not been established yet
 	if(!isset($connection)) {
 		
+		
+		file_put_contents('php://stderr', print_r($server, TRUE));
+		file_put_contents('php://stderr', print_r($username, TRUE));
+		file_put_contents('php://stderr', print_r($password, TRUE));
+		file_put_contents('php://stderr', print_r($db, TRUE));
 		// load configuration as an array
 		// $config = parse_ini_file('../config.ini'); // configuration for localhost
 		$connection = mysqli_connect($server, $username, $password, $db);
+		
 	}
 	
 	// if connection was not successful, handle the error
@@ -37,6 +43,7 @@
 		
 		// connect to the database
 		$connection = db_connect();
+		file_put_contents('php://stderr', print_r("CONNECTED", TRUE));
 		
 		//query the database
 		$result = mysqli_query($connection, $query);
