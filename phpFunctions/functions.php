@@ -16,6 +16,7 @@
 	if(!isset($connection)) {
 		
 		file_put_contents('php://stderr', print_r("NOT SET CONNECTION", TRUE));
+		file_put_contents('php://stderr', print_r("SERVER IN FUNctions", TRUE));
 		file_put_contents('php://stderr', print_r($server, TRUE));
 		file_put_contents('php://stderr', print_r($username, TRUE));
 		file_put_contents('php://stderr', print_r($password, TRUE));
