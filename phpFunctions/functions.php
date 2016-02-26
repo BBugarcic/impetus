@@ -4,12 +4,21 @@
 	 *
 	 * Establish connection with the database.
 	 */
-	include('../database.php');
+	//include('../database.php');
 	
 	function db_connect() {
 	
 	// define connection as a static variable, to avoid connecting more then once
 	static $connection;
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	file_put_contents('php://stderr', print_r("URL   URL", TRUE));
+	file_put_contents('php://stderr', print_r($url, TRUE));
+	$server = $url["host"];
+	file_put_contents('php://stderr', print_r("SERVER", TRUE));
+	file_put_contents('php://stderr', print_r($server, TRUE));
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
 	file_put_contents('php://stderr', print_r("DB CONNECT", TRUE));
 	
 	// try and connect to the database, if a connection has not been established yet
@@ -22,7 +31,7 @@
 		file_put_contents('php://stderr', print_r($password, TRUE));
 		file_put_contents('php://stderr', print_r($db, TRUE));
 		// load configuration as an array
-		// $config = parse_ini_file('../config.ini'); // configuration for localhost
+		 $config = parse_ini_file('../config.ini'); // configuration for localhost
 		$connection = mysqli_connect($server, $username, $password, $db);
 		
 	}
